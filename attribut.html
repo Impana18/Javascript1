@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Document</title>
+  <link rel="stylesheet" href="../font-awesome/css/all.css">
+
+</head>
+<body>
+<!-- <p id="ptag">Paragraph</p> -->
+
+<!-- <p>para</p>
+<p>para</p>
+<p>hsui</p>
+<p>jci</p> -->
+
+<!-- <p>para</p>
+<p>para</p> -->
+
+<p>para</p>
+<p>para</p>
+<button type="button" id="btn" onclick="handlesubmit()">submit</button>
+
+
+<!-- <p>para</p>
+ <p>para</p>
+<button type="button" id="btn">submit</button> --> 
+
+<!-- <input type="password" id="psd" placeholder="enter your password" value=""> -->
+<i class="fa-solid fa-lock-keyhole"></i>
+
+
+    <script>
+// let attributeval=document.createAttribute("class");
+// attributeval.value="attribute-js";//class="attribute-js"
+// document.getElementById("ptag").setAttributeNode(attributeval)
+// <!-- output -->
+// <!-- <p id="ptag" class="attribute-js">Paragraph</p> -->
+
+// query selector we can use any one like class id tag name 
+// document.querySelector("p").innerHTML="text changed"
+
+//for any element indiual changes we use a queryselectorAll
+// let res=document.querySelectorAll("p")
+// res[1].innerHTML="Text changes "
+
+// function handlesubmit(){
+//     alert('Button detetcted')
+// }
+
+
+document.getElementById("btn").addEventListener("click",handleFun);
+function handleFun(){
+    alert('Button detetcted')
+
+}
+
+
+    </script>
+</body>
+</html>

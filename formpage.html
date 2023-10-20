@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Document</title>
+</head>
+  <style>
+
+  </style>
+  <body>
+    <h2>Registration Form</h2>
+    <form >
+        <label>Name:</label>
+        <input type="text" name="Text" value="" id="name" placeholder="Enter your name">
+        <p id="displayNameMsg"></p>
+        <br> <br>
+        <label>Phone Number:</label>
+        <input type="number" name="number" value="" id="phone" placeholder="Enter your phone number">
+        <p id="displayPhnMsg"></p>
+        <br><br>
+         <label>Password:</label>
+        <input type="password" name="password" value="" id="password" placeholder="Enter the password">
+        <p id="DisplyPassMsg"></p>
+        <br> <br>
+        <button type="button" onclick="handleFunc()">submit</button>
+        <div id="displayMsg"></div>
+        
+    </form>
+    
+  </body>
+  <script>
+function handleFunc(){
+  let nameValue=document.getElementById("name").value
+  let phoneValue=document.getElementById("phone").value
+  let Passvalue=document.getElementById("password").value
+  let displayNameMsg=document.getElementById("displayNameMsg");
+  let displayPhnMsg=document.getElementById("displayPhnMsg");
+  let displyPassMsg=document.getElementById("DisplyPassMsg");
+  const phoneValidation=/^[6-9][0-9]{9}$/
+//name validaion
+if(nameValue.length && nameValue.length >1 && nameValue.length <=6){
+  displayNameMsg.innerHTML="";
+}else{
+  displayNameMsg.innerHTML="The name must be minimum 1 character and maximun 6 character only"
+  displayNameMsg .style.color='red'
+}
+//phone validation
+if(phoneValidation.test( phoneValue)){
+  displayPhnMsg.innerHTML="";
+}else{
+  displayPhnMsg.innerHTML="Please enter a valid phone number"
+  displayPhnMsg.style.color='red'
+}
+ //password validation
+ if(Passvalue.length >=8){
+  displyPassMsg.innerHTML="";
+ }else{
+  displyPassMsg.innerHTML="The password must be minimum 8 character"
+  displyPassMsg.style.color='red'
+ }
+
+if((nameValue.length && nameValue.length >1 && nameValue.length <=6)&&(phoneValidation.test( phoneValue)&&(Passvalue.length >=8))){
+  
+  const Name=`Name:${nameValue}`
+  const phoneNumber=`Phone Number:${phoneValidation}`
+  const passWord=`password:${Passvalue}`
+
+  document.getElementById("displayMsg").innerHTML=` ${nameValue} <br> ${phoneValue} <br> ${Passvalue}`
+} else{
+
+  displayMsg.innerHTML="";
+
+}
+
+
+
+
+
+}
+
+  </script>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Document</title>
+</head>
+  <style>
+
+  </style>
+  <body>
+    <h1>Registration Form</h1>
+    <form>
+    <p>Name:</p>
+    <input type="text" id="name" value="" placeholder="Enter your name">
+    <div class="regexNameMsg"></div>
+    <p>Phone Number:</p>
+    <input type="text" id="phone" value="" placeholder="Enter phone number">
+    <div class="regexPhoneMsg"></div>
+    <p>Password:</p>
+    <input type="text" id="Password" value="" placeholder="Enter the password"> <br>
+    <div class="regexPasswordMsg"></div><br><br>
+
+    <button type="button" onclick="handleFunc()">Submit</button>
+    <div id="displaymsg"></div>
+    </form>
+    <script>
+        function handleFunc(){
+            let name=document.getElementById("name").value;
+            const regexName= /[a-zA-Z]{1,6}$/;
+            if(name === "" || !regexName.test(name)){
+            document.getElementById("regexNameMsg").innerHTML="The name must be within 1 to 6 character"
+            document.getElementById("regexNameMsg").style.color="red"
+        }else{
+            document.getElementById("regexNameMsg").innerHTML=""
+        }
+        let phone=document.getElementById("phone").value;
+        const regexPhone=/^[7-9][0-9]{9}$/;
+        if(phone=== " " || !regexPhone.test(phone)){
+            document.getElementById("regexPhoneMsg").innerHTML="please enter a valid phone number"
+            document.getElementById("regexPhoneMsg").style.color="red"
+        }else{
+            document.getElementById("regexPhoneMsg").innerHTML="" 
+        }
+        let password=document.getElementById("Password").value
+        const regexPassword=/[a-z0-9]{8}$/i;
+        if( password===" " ||!regexPassword.test(password)){
+        document.getElementById("regexPasswordMsg").innerHTML="please enter a valid password"
+            document.getElementById("regexPasswordMsg").style.color="red"
+        }else{
+            document.getElementById("regexPasswordMsg").innerHTML="" 
+        }
+        if(name && phone && password){
+            document.getElementById("displaymsg").innerHTML=`Name: ${name} <br> phone: ${phone} <br> password:${password}`
+        }
+        
+        }
+
+    </script>
+  </body>
+</html>

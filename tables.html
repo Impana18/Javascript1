@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Document</title>
+</head>
+<body>
+    <input type="text" id="num1" value="" placeholder="Enetr a number">
+    <button type="button" onclick=" handlesubmit()" style="background-color: aqua;">submit</button>
+    <div id="displayResult"></div>
+
+    <script>
+        function handlesubmit(){
+            let enteredvalue=document.getElementById('num1').value;
+            let displayTable="";
+            for(let i=1;i<=10;i++){
+                const result=parseInt( enteredvalue)*i;
+                console.log(`${enteredvalue}*${i}=${result}`)
+                displayTable=displayTable+ `<p> ${enteredvalue}*${i}=${result}</p>`
+                   
+        
+            }
+            document.getElementById("displayResult").innerHTML=displayTable
+        }
+    </script>
+</body>
+</html>

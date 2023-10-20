@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Document</title>
+
+  <style>
+.btn{
+  background-color: black;
+  
+  padding:5px;
+  margin: 20px 30px;
+  color: chocolate;
+}
+  </style>
+</head>
+  <body>
+    <div class="atmMachine">
+        <label>Enter The amount</label>
+        <input type="text" name="number" id="amount" placeholder="Enter the amount">
+    
+    <div>
+      <button type="button" class="btn" onclick="handleWithDrawFunc()">WithDraw</button>
+      <button type="button" class="btn" onclick="handleDepositFunc()">Deposit</button>
+      <button type="button" class="btn" onclick="handleBalanceEnqiryFunc()">Balance Enquiry</button>
+      <button type="button" class="btn" onclick="handleClearFunc()">Clear</button>
+  
+    </div>
+    <p id="displayMsg"></p>
+    </div>
+  </body>
+  <script>
+    let balanceamount=0;
+    function handleWithDrawFunc(){
+      enteredAmount=document.getElementById("amount").value;
+      if(enteredAmount && parseInt(enteredAmount)>1){
+        if(parseInt(enteredAmount)<=20000){
+          if(balanceamount-parseInt( enteredAmount)>0){
+            balanceamount-=parseInt(enteredAmount);
+            displayMsg(`${enteredAmount} Amount draw sucessfully`,"green")
+            document.getElementById("amount").value=""
+          }else{
+            displayMsg(`the balance is too low`,"red")
+          }
+        }else{
+          displayMsg(`cant withdraw more than 20000,please visit your Bank`,"red")
+        }
+      }else{
+        displayMsg(`Please enter a valid Amount` ,"red")
+      }
+    }
+function handleDepositFunc(){
+  enteredAmount=document.getElementById("amount").value;
+      if(enteredAmount && parseInt(enteredAmount)>1){
+        if(parseInt(enteredAmount)<=20000){
+            balanceamount+=parseInt(enteredAmount);
+            displayMsg(`${enteredAmount} Amount Deposit sucessfully`,"green")
+            document.getElementById("amount").value=""
+        }else{
+          displayMsg(`cant Deposit more than 20000,please visit your Bank`,"red")
+        }
+      }else{
+        displayMsg(`Please enter a valid Amount` ,"red")
+      }
+    }
+    function handleBalanceEnqiryFunc(){
+      const displayAmount=`The Balance Amount is ${balanceamount}`
+      displayMsg(displayAmount,"green")
+      document.getElementById("amount").value=""
+    }
+    function handleClearFunc(){
+      displayMsg("","black")
+      document.getElementById("amount").value=""
+    }
+    function displayMsg(text,color){
+      document.getElementById("displayMsg").innerHTML=text;
+      document.getElementById("displayMsg").style.color=color;
+    }
+
+
+  </script>
+</html>

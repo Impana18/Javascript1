@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Document</title>
+  <style>
+    
+  </style>
+</head>
+<body>
+    <h4>Enter the number between o to 100</h4>
+    <input type="number" id="enterdvalue" value="" plaeholder="enter a number">
+    <button type="submit" onclick="handleNumGuess()">submit</button>
+    <div id="displayMsg"></div>
+    <script>
+        let randomNum=Math.floor(Math.random()*100)
+        console.log(randomNum)
+        function handleNumGuess(){
+            let enterdvalue=document.getElementById("enterdvalue").value
+            // console.log(enterdvalue,'enter number')
+            // console.log(randomNum,'randomNum')
+            if( enterdvalue && parseInt( enterdvalue)>0 &&  enterdvalue&& parseInt( enterdvalue)<100){
+                if(enterdvalue==randomNum){
+                     displaymessag('Hey congrats your guess is correct','Green')
+
+                    
+                }else if(enterdvalue>randomNum){
+                    displaymessag('Number is too high','red')
+                  
+
+                }else if(enterdvalue<randomNum){
+                    
+                    displaymessag('Number is too low','red')
+                  
+                }
+
+            }else{
+                displaymessag('please enter a valid number','red')
+            }
+            function displaymessag(text,color){
+            document.getElementById('displayMsg').innerHTML=text
+                    document.getElementById('displayMsg').style.color=color
+            }
+
+        }
+    </script>
+</body>
+</html>

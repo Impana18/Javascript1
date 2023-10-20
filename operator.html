@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Document</title>
+</head>
+<body>
+    <input type="number" id="firstnum" placeholder="Enter first number" value="">
+    <input type="number" id="secondnum" placeholder="Enter second number" value="">
+    <br>
+    <p id="operator"></p>
+    <button type="button" onclick="adition()">click for Addition</button> 
+    <button type="button" onclick="substraction()">click for Substraction</button> 
+    <button type="button" onclick="multiplication()">click for Multiplication</button> 
+    <button type="button" onclick="division()">click for Division</button>
+    <br>
+    <script>
+        function adition(){
+            let firstnum=document.getElementById("firstnum").value
+            let secondnum=document.getElementById("secondnum").value
+            if(firstnum && secondnum){
+            const additionoftwonumbers=parseInt(firstnum)+parseInt(secondnum)
+            document.getElementById("operator").innerHTML=`sum of two number is ${additionoftwonumbers}`
+            } else{
+                document.getElementById('operator').innerHTML='please enter a number'
+                document.getElementById('operator').style.color='red'
+            }
+        }
+        function substraction(){
+            let firstnum=document.getElementById("firstnum").value
+            let secondnum=document.getElementById("secondnum").value
+            const SubstractionOfTwoNumbers=parseInt(firstnum)-parseInt(secondnum)
+            document.getElementById("operator").innerHTML=`substraction of two numbers is ${SubstractionOfTwoNumbers}`
+        }
+        function multiplication(){
+            let firstnum=document.getElementById("firstnum").value
+            let secondnum=document.getElementById("secondnum").value
+            const MultiplicationOfTwoNumbers=parseInt(firstnum)*parseInt(secondnum)
+            document.getElementById("operator").innerHTML=`Multiplication of two numbers is ${MultiplicationOfTwoNumbers}`
+        }
+
+        function division() {
+            let firstnum=document.getElementById("firstnum").value
+            let secondnum=document.getElementById("secondnum").value
+            const Division=parseInt(firstnum)/parseInt(secondnum)
+            document.getElementById("operator").innerHTML=`Division of two numbers is ${Division}`
+        }
+        
+    </script> 
